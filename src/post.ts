@@ -23,6 +23,7 @@ const Post: post = {
   comments = [];
 };
 */
+
 let Posts: post[] = [];
 
 export function create(sender: string, title: string , content: string) {

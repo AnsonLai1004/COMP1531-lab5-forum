@@ -80,6 +80,7 @@ app.delete('/clear', (req: Request, res: Response) => {
 /**
  * Start server
  */
-app.listen(PORT, () => {
+ app.listen((parseInt(process.env.PORT) || PORT), () => {
   console.log(`Starting Express Server at the URL: '${SERVER_URL}'`);
 });
+
