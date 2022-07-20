@@ -2,8 +2,6 @@ import request from 'sync-request';
 
 import { SERVER_URL } from './config';
 
-
-
 test('success root', () => {
   const res = request(
     'GET',
@@ -16,5 +14,3 @@ test('success root', () => {
   const data = JSON.parse(res.getBody() as string);
   expect(data).toStrictEqual({ message: expect.any(String) });
 });
-
-

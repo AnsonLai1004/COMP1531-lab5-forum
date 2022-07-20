@@ -8,7 +8,7 @@ import morgan from 'morgan';
 import { echo } from './echo';
 import { PORT, SERVER_URL } from './config';
 
-import { create, comment_f1, view, postsView, clear } from './post'
+import { create, comment_f1, view, postsView, clear } from './post';
 
 const app = express();
 // Use middleware that allows for access from other domains (needed for frontend to connect)
@@ -43,7 +43,7 @@ app.post('/post/create', (req: Request, res: Response) => {
   const { sender, title, content } = req.body;
 
   // TODO: Implement
-  //console.log('Do something with:', sender, title, content);
+  // console.log('Do something with:', sender, title, content);
 
   res.json(create(sender, title, content));
 });
@@ -52,16 +52,15 @@ app.post('/post/create', (req: Request, res: Response) => {
 app.post('/post/comment', (req: Request, res: Response) => {
   // For PUT/POST requests, data is transfered through the JSON body
   const { postId, sender, comment } = req.body;
-  //console.log('Do something with:', postId, sender, comment);
+  // console.log('Do something with:', postId, sender, comment);
 
   // TODO: Implement
   res.json(comment_f1(postId, sender, comment));
 });
 
-
 app.get('/post/view', (req: Request, res: Response) => {
   const postId = parseInt((req.query.postId) as string);
-  //console.log(postId);
+  // console.log(postId);
   res.json(view(postId));
 });
 
@@ -70,7 +69,7 @@ app.get('/posts/view', (req: Request, res: Response) => {
   // const { sender, title, content } = req.body;
 
   // TODO: Implement
-  //console.log('Do something with:', sender, title, content);
+  // console.log('Do something with:', sender, title, content);
   res.json(postsView());
 });
 
@@ -80,7 +79,6 @@ app.delete('/clear', (req: Request, res: Response) => {
 /**
  * Start server
  */
- app.listen((parseInt(process.env.PORT) || PORT), () => {
+app.listen((parseInt(process.env.PORT) || PORT), () => {
   console.log(`Starting Express Server at the URL: '${SERVER_URL}'`);
 });
-
