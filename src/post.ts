@@ -99,4 +99,6 @@ export function postsView() {
 
 export function clear() {
   Posts = [];
+  return {};
 }
+ 
