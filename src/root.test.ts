@@ -2,11 +2,8 @@ import request from 'sync-request';
 
 import { SERVER_URL } from './config';
 
-test('Remove this test and uncomment the test below', () => {
-  expect(1 + 1).toStrictEqual(2);
-});
 
-/*
+
 
 test('success root', () => {
   const res = request(
@@ -21,4 +18,4 @@ test('success root', () => {
   expect(data).toStrictEqual({ message: expect.any(String) });
 });
 
-*/
+

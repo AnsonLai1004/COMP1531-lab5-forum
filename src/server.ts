@@ -6,6 +6,9 @@ import morgan from 'morgan';
 
 // Importing the example implementation for echo in echo.js
 import { echo } from './echo';
+import { create} from './demo';
+import { commentV1,view_single,view_all,clear } from './demo';
+
 import { PORT, SERVER_URL } from './config';
 
 const app = express();
@@ -40,11 +43,37 @@ app.get('/echo/echo', (req: Request, res: Response) => {
 app.post('/post/create', (req: Request, res: Response) => {
   // For PUT/POST requests, data is transfered through the JSON body
   const { sender, title, content } = req.body;
+  res.json(create(sender,title,content)) ;
+});
+
+app.post('/post/comment', (req: Request, res: Response) => {
+  // For PUT/POST requests, data is transfered through the JSON body
+  const {postId, sender, comment} = req.body;
 
   // TODO: Implement
-  console.log('Do something with:', sender, title, content);
-  res.json({ postId: -99999 });
+  res.json(commentV1(postId,sender,comment)) ;
 });
+
+app.get('/post/view', (req: Request, res: Response) => {
+  // For GET/DELETE requests, parameters are passed in a query string.
+  // You will need to typecast for GET/DELETE requests.
+  const pid = req.query.postId as String;
+  let pId = Number(pid);
+  // Logic of the echo function is abstracted away in a different
+  // file called echo.py.
+  res.json(view_single(pId));
+});
+
+app.get('/posts/view', (req: Request, res: Response) => {
+  res.json(view_all());
+});
+
+app.delete('/clear', (req: Request, res: Response) => {
+
+  res.json(clear()) ;
+});
+
+
 
 // TODO: Remaining routes
 

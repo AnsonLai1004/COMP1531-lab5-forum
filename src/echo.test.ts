@@ -1,10 +1,7 @@
 import request from 'sync-request';
 
-test('Remove this test and uncomment the tests below', () => {
-  expect(1 + 1).toStrictEqual(2);
-});
 
-/*
+
 
 // We're only importing the SERVER_URL from config.
 // No functions that you've written should be imported,
@@ -57,4 +54,5 @@ test('failure, echo echo', () => {
 // It may also be possible to extend these helper/wrapper functions to work
 // for different methods, routes, etc.
 
-*/
+
+
